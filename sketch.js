@@ -1,3 +1,4 @@
+
 let toggle = false;
 let sound;
 let count = 0;
@@ -30,16 +31,21 @@ function draw() {
       toggle = false ; //計數至100時，toggle = false
     }
   }
+  fill(255);
+  textSize(20);
+  textFont('Consola');
+  textAlign(CENTER,CENTER);
+  text('Press any Key From A to Z.',width/2,height-50);
 }
 
 function keyPressed() {
-  if (key == 'k') {
+ // if (key == 'k') {
     toggle = true;
     sound.play(); //play sound
-  }
+ // }
 }
 
-//彈跳程式，把number去掉
+//彈跳動態，把:number去掉
 function easeOutBounce(x) {
   const n1 = 7.5625;
   const d1 = 2.75;
@@ -53,4 +59,10 @@ function easeOutBounce(x) {
   } else {
     return n1 * (x -= 2.625 / d1) * x + 0.984375;
   }
+}
+
+
+function windowResized(){
+  resizeCanvas(windowWidth,windowHeight);
+
 }
